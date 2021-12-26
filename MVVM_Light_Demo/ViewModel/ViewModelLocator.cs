@@ -1,9 +1,7 @@
+using System.Windows;
 using CommonServiceLocator;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using System;
-using System.Windows;
 
 namespace MVVM_Light_Demo.ViewModel
 {
@@ -13,16 +11,16 @@ namespace MVVM_Light_Demo.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<Calisan_ViewModel>();
 
             Messenger.Default.Register<NotificationMessage>(this, NotifyUserMethod);
         }
 
-        public MainViewModel MainViewModel
+        public Calisan_ViewModel Calisan_ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<Calisan_ViewModel>();
             }
         }
 

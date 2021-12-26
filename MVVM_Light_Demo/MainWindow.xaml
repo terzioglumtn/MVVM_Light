@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM_Light_Demo"
         mc:Ignorable="d"
-        Title="{Binding Baslik_str}" Height="450" Width="800"
-        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+        Title="{Binding Baslik_str}" 
+        Height="450" 
+        Width="800"
+        DataContext="{Binding Calisan_ViewModel, Source={StaticResource Locator}}">
  
     <DockPanel LastChildFill="True" 
-               DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+               DataContext="{Binding Calisan_ViewModel, Source={StaticResource Locator}}">
 
         <ListBox DockPanel.Dock="Left" 
-                 ItemsSource="{Binding EmployeeList}" 
+                 ItemsSource="{Binding Calisanlar_Listesi}" 
                  DisplayMemberPath="Name" 
-                 SelectedItem="{Binding SelectedEmployee}" 
+                 SelectedItem="{Binding Secilmis_Calisan}" 
                  Width="100">
         </ListBox>
 
@@ -22,13 +24,13 @@
             <Button DockPanel.Dock="Left" 
                     Content="Load Employees" 
                     Width="200" Height="25" 
-                    Command="{Binding LoadEmployeesCommand}" />
+                    Command="{Binding Calisanlari_Yukle_Command}" />
 
             <Button DockPanel.Dock="Right" 
                     Content="Save Employees" 
                     Width="200" 
                     Height="25" 
-                    Command="{Binding SaveEmployeesCommand}" />
+                    Command="{Binding Calisani_Kaydet_Command}" />
         </DockPanel>
 
         <Grid>
@@ -57,28 +59,28 @@
                    Content="ID" />
             <TextBox Grid.Row="0" 
                      Grid.Column="1" 
-                     Text="{Binding SelectedEmployee.ID}" />
+                     Text="{Binding Secilmis_Calisan.ID}" />
 
             <Label Grid.Row="1" 
                    Grid.Column="0" 
                    Content="Name" />
             <TextBox Grid.Row="1" 
                      Grid.Column="1" 
-                     Text="{Binding SelectedEmployee.Name}" />
+                     Text="{Binding Secilmis_Calisan.Ad_str}" />
 
             <Label Grid.Row="2" 
                    Grid.Column="0" 
                    Content="Age" />
             <TextBox Grid.Row="2" 
                      Grid.Column="1" 
-                     Text="{Binding SelectedEmployee.Age}" />
+                     Text="{Binding Secilmis_Calisan.Yas_s32}" />
 
             <Label Grid.Row="3" 
                    Grid.Column="0" 
                    Content="Salary" />
             <TextBox Grid.Row="3" 
                      Grid.Column="1" 
-                     Text="{Binding SelectedEmployee.Salary}" />
+                     Text="{Binding Secilmis_Calisan.Maas_f64}" />
         </Grid>
     </DockPanel>
 </Window>
